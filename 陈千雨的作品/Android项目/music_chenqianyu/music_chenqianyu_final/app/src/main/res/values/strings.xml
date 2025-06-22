@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">SplashDemo</string>
+    <string name="declaration_title">声明与条款</string>
+    <string name="declaration_content">欢迎使用音乐社区，我们将严格遵守相关法律和隐私政策保护您的个人隐私，请阅读并同意《用户协议》与《隐私政策》</string>
+    <string name="user_agreement">用户协议</string>
+    <string name="privacy_policy">隐私政策</string>
+    <string name="disagree">不同意</string>
+    <string name="agree_and_use">同意并使用</string>
+    <string name="welcome">欢迎来到首页</string>
+    <string name="music_community">音乐社区</string>
+    <string name="prev_button_desc">上一首</string>
+    <string name="play_button_desc">播放</string>
+    <string name="next_button_desc">下一首</string>
+    <string name="like_button_desc">收藏</string>
+    <string name="playlist_button_desc">添加到播放列表</string>
+    <string name="share_button_desc">分享</string>
+    <string name="more_button_desc">更多选项</string>
+    <string name="mode_button_desc">切换播放模式</string>
+    <string name="close_button_desc">关闭</string>
+    <string name="mini_play_button_desc">播放按钮</string>
+    <string name="mini_pause_button_desc">暂停按钮</string>
+    <string name="mini_player_desc">迷你播放器，当前播放: %1$s - %2$s</string>
+    <string name="delete_button_desc">删除</string>
+    <string name="delete">删除</string>
+    <string name="sequential_mode">顺序播放</string>
+    <string name="shuffle_mode">随机播放</string>
+    <string name="loop_mode">单曲循环</string>
+
+</resources>

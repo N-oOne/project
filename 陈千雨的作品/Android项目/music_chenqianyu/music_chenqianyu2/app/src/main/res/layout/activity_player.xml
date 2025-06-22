@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- 在RelativeLayout的子元素最前面添加关闭按钮 -->
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/close_button_desc"
+        android:src="@drawable/ic_close_white_24dp"/>
+
+    <!-- 圆形专辑图片 -->
+    <com.example.music_chenqianyu.view.CircleImageView
+        android:id="@+id/coverImage"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:scaleType="centerCrop"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/white"
+        tools:src="@drawable/app_icon"/>
+
+    <!-- 歌词TextView -->
+    <ScrollView
+        android:id="@+id/lyricsScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:visibility="gone"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/tvLyrics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:lineSpacingExtra="8dp"
+            android:textAlignment="center"
+            android:padding="16dp"
+            android:text="歌词内容将显示在这里"/>
+    </ScrollView>
+
+    <!-- 进度条 -->
+    <LinearLayout
+        android:id="@+id/process_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/time_process"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp">
+
+        <!-- 歌曲信息和喜欢按钮的容器 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp">
+
+            <!-- 歌曲名称和歌手名称容器 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/likeButton"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/musicTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="Here Comes the Sun"/>
+
+                <TextView
+                    android:id="@+id/musicAuthor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/white_alpha_80"
+                    android:textSize="16sp"
+                    tools:text="The Beatles"/>
+            </LinearLayout>
+
+            <!-- 喜欢按钮 (保持在右侧) -->
+            <ImageButton
+                android:id="@+id/likeButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentRight="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/like_button_desc"
+                android:src="@drawable/ic_favorite_border_white_24dp"/>
+        </RelativeLayout>
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="35"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:thumb="@drawable/seekbar_thumb"/>
+    </LinearLayout>
+
+    <!-- 时间进度 -->
+    <LinearLayout
+        android:id="@+id/time_process"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_control"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/tvCurrentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0:00"
+            android:textColor="@color/white_alpha_80"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvTotalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3:45"
+            android:textColor="@color/white_alpha_80"/>
+    </LinearLayout>
+
+    <!-- 主控制按钮 (固定在底部) -->
+    <LinearLayout
+        android:id="@+id/main_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!-- 模式切换按钮 -->
+        <ImageButton
+            android:id="@+id/modeButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/mode_button_desc"
+            android:src="@drawable/ic_mode_circle"/>
+
+        <ImageButton
+            android:id="@+id/prevButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/prev_button_desc"
+            android:src="@drawable/ic_skip_pre"/>
+
+        <ImageButton
+            android:id="@+id/playButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/play_button_desc"
+            android:src="@drawable/ic_play_rec"/>
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/next_button_desc"
+            android:src="@drawable/ic_skip_next"/>
+
+        <ImageButton
+            android:id="@+id/playlistButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/playlist_button_desc"
+            android:src="@drawable/ic_playlist_add"/>
+    </LinearLayout>
+</RelativeLayout>
